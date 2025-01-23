@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -100,11 +100,10 @@
             Grid.Column="0"
             Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" />
             <dxg:GridControl
+                Grid.Row="1"
                 x:Name="ResultGrid"
                 MaxHeight="700"
                 AutoGenerateColumns="None">

@@ -320,8 +320,24 @@ namespace UnitTestComp
                 var discoveredTests = discoveryEventHandler.GetDiscoveredTestCases();
 
                 TestListBox.Items.Clear();
+                List<string> testNames = new();
                 foreach (var testCase in discoveredTests)
                 {
+                    if (testNames.Contains(testCase.FullyQualifiedName))
+                    {
+                        int i = 1;
+                        while (true)
+                        {
+                            if (testNames.Contains(testCase.FullyQualifiedName+i.ToString()))
+                            {
+                                i++;
+                                continue;
+                            }
+                            break;
+                        }
+                        testCase.FullyQualifiedName += i.ToString();
+                    }
+                    testNames.Add(testCase.FullyQualifiedName);
                     TestListBox.Items.Add(new ListBoxEditItem { Content = testCase.FullyQualifiedName, Tag = testCase });
                 }
             }
